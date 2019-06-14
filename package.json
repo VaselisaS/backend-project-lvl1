@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-pipeline-operator": "^7.3.2",
+    "readline-sync": "^1.4.9",
     "source-map-support": "^0.5.12"
   }
 }
