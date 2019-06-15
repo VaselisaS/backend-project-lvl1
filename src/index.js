@@ -1,7 +1,8 @@
 import 'source-map-support/register';
-import readlineSync from 'readline-sync';
+import startGame from './start-game';
+import { userName, welcomUser, congratulationsUser } from './user';
+import question from './question';
 
-export default () => {
-  const userName = readlineSync.question('May I have you name? ');
-  console.log(`Hello, ${userName}!`);
+export {
+  startGame, userName, welcomUser, congratulationsUser, question,
 };

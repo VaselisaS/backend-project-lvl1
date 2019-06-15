@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-import userName from '..';
+import { startGame, userName, welcomUser } from '..';
 
-console.log('Welcome to the Brain Games!\n');
+startGame();
 
-userName();
+const name = userName();
+
+welcomUser(name);
