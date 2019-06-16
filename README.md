@@ -3,3 +3,4 @@
 [![Build Status](https://travis-ci.org/VaselisaS/backend-project-lvl1.svg?branch=master)](https://travis-ci.org/VaselisaS/backend-project-lvl1)
 [![asciicast](https://asciinema.org/a/cdK9fk63bB3KW2E8GlHjIujo2.svg)](https://asciinema.org/a/cdK9fk63bB3KW2E8GlHjIujo2)
 [![asciicast](https://asciinema.org/a/EDYOSf8UK4eSAnWBdy2HkEvoJ.svg)](https://asciinema.org/a/EDYOSf8UK4eSAnWBdy2HkEvoJ)
+[![asciicast](https://asciinema.org/a/252009.svg)](https://asciinema.org/a/252009)
