@@ -13,6 +13,9 @@ start-calc:
 start-gcd:
 	npx babel-node src/bin/brain-gcd.js
 
+start-progression:
+	npx babel-node src/bin/brain-progression.js
+
 build:
 	rm -rf dist
 	npm run build
@@ -25,3 +28,9 @@ publish:
 
 lint:
 	npx eslint .
+
+link:
+	sudo npm link
+
+unlink:
+	sudo npm unlink
