@@ -1,15 +1,5 @@
 #!/usr/bin/env node
-import {
-  startGame, userName, welcomUser, question,
-} from '..';
+import { game } from '..';
+import { questionUser, correctAnswer } from '../games/even';
 
-startGame();
-
-console.log('Answer "yes" if number even otherwise answer "no".\n');
-
-const name = userName();
-
-welcomUser(name);
-console.log('\n');
-
-question(name, 0, 99);
+game('Answer "yes" if number even otherwise answer "no".\n', questionUser, correctAnswer, 99, 0);
