@@ -16,6 +16,9 @@ start-gcd:
 start-progression:
 	npx babel-node src/bin/brain-progression.js
 
+start-prime:
+	npx babel-node src/bin/brain-prime.js
+
 build:
 	rm -rf dist
 	npm run build
@@ -34,3 +37,6 @@ link:
 
 unlink:
 	sudo npm unlink
+
+uninstall:
+	sudo npm uninstall -g lisa-brain-games
