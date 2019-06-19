@@ -1,7 +1,7 @@
 ##
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ee014315bdc95ef4efb2/maintainability)](https://codeclimate.com/github/VaselisaS/backend-project-lvl1/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ee014315bdc95ef4efb2/test_coverage)](https://codeclimate.com/github/VaselisaS/backend-project-lvl1/test_coverage)
 [![Build Status](https://travis-ci.org/VaselisaS/backend-project-lvl1.svg?branch=master)](https://travis-ci.org/VaselisaS/backend-project-lvl1)
 
 ##
@@ -10,7 +10,7 @@
 
 ## Installation
 
-[![asciicast](https://asciinema.org/a/i9iAPLN2CdwCbtPBaua0rHdjh.svg)](https://asciinema.org/a/i9iAPLN2CdwCbtPBaua0rHdjh)
+[![asciicast](https://asciinema.org/a/2Xip1pEbQEvmi59YKVzWttbsk.svg)](https://asciinema.org/a/2Xip1pEbQEvmi59YKVzWttbsk)
 
 ## Setup
 

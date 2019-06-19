@@ -1,5 +1,7 @@
-import { question } from '../user';
 import { randomNumber } from '../random-helper';
+import run from '../index';
+
+const massege = 'What number is missing in the progression?\n';
 
 const data = {
   answer: '',
@@ -22,6 +24,10 @@ const progression = (startNumber, increment) => {
   return iter(10, startNumber, '');
 };
 
-export const questionUser = (numFirst, numSecond) => question(progression(numFirst, numSecond));
+const runCreateData = () => progression(randomNumber(0, 99), randomNumber(0, 99));
 
-export const correctAnswer = () => data.answer;
+const getQuestionMassege = () => data.question;
+
+const getCorrectAnswer = () => data.answer;
+
+export default () => run(massege, getCorrectAnswer, runCreateData, getQuestionMassege);

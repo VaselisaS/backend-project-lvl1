@@ -1,5 +1,12 @@
-import { question } from '../user';
+import { randomNumber } from '../random-helper';
+import run from '../index';
 
-export const questionUser = number => question(number);
+const massege = 'Answer "yes" if number even otherwise answer "no".\n';
 
-export const correctAnswer = number => (number % 2 === 0 ? 'yes' : 'no');
+const data = () => randomNumber(0, 99);
+
+const getQuestionMassege = number => `${number}`;
+
+const getCorrectAnswer = number => (number % 2 === 0 ? 'yes' : 'no');
+
+export default () => run(massege, getCorrectAnswer, data, getQuestionMassege);

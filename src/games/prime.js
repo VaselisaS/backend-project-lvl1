@@ -1,19 +1,26 @@
-import { question } from '../user';
+import { randomNumber } from '../random-helper';
+import run from '../index';
 
-export const questionUser = numberFirst => question(`${numberFirst}`);
+const massege = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
 
-export const correctAnswer = (numberFirst) => {
-  if (numberFirst < 2) {
+const data = () => randomNumber(0, 99);
+
+const getQuestionMassege = number => `${number}`;
+
+const getCorrectAnswer = (number) => {
+  if (number < 2) {
     return 'no';
   }
   const iter = (counter) => {
-    if (counter > numberFirst / 2) {
+    if (counter > number / 2) {
       return 'yes';
     }
-    if (numberFirst % counter === 0) {
+    if (number % counter === 0) {
       return 'no';
     }
     return iter(counter + 1);
   };
   return iter(2);
 };
+
+export default () => run(massege, getCorrectAnswer, data, getQuestionMassege);

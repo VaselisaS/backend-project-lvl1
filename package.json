@@ -1,13 +1,12 @@
 {
   "name": "lisa-brain-games",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Brain games - game with numbers through the console",
   "keywords": [
     "brain games",
     "game with numbers",
     "console game"
   ],
-  "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",

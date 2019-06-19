@@ -1,43 +1,37 @@
 import 'source-map-support/register';
-import {
-  userName,
-  welcomUser,
-  startMassege,
-  congratulationsUser,
-  checkUserAnswer,
-  answer,
-} from './user';
-import { randomNumber, randomOperator } from './random-helper';
+import readlineSync from 'readline-sync';
 
-const game = (massege = '', questionUser, correctAnswer, maxNumber = 0, minNumber = 99) => {
-  startMassege(massege);
-  const name = userName();
-  welcomUser(name);
-  if (massege === '') {
+export default (welcomeMassege = '', getCorrectAnswer, data, getQuestionMassege) => {
+  console.log(`Welcome to the Brain Games!\n${welcomeMassege}`);
+
+  const userName = readlineSync.question('May I have you name? ');
+
+  console.log(`Hello, ${userName}!`);
+
+  if (welcomeMassege === '') {
     return false;
   }
   console.log('\n');
 
   const iter = (counter) => {
     if (counter === 0) {
-      return congratulationsUser(name);
+      return console.log(`Congratulations, ${userName}!`);
     }
 
-    const numberFirst = randomNumber(maxNumber, minNumber);
-    const numberSecond = randomNumber(maxNumber, minNumber);
-    const operator = randomOperator();
+    const randomData = data();
+    console.log(`Question: ${getQuestionMassege(randomData)}`);
 
-    questionUser(numberFirst, numberSecond, operator);
-    const corAnswer = correctAnswer(numberFirst, numberSecond, operator);
-    const answerUser = checkUserAnswer(answer(), corAnswer, name);
-    if (!answerUser) {
+    const answerUser = readlineSync.question('Your answer: ');
+    const correctAnswer = getCorrectAnswer(randomData);
+    if (correctAnswer !== answerUser) {
+      console.log(
+        `'${answerUser}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`,
+      );
       return false;
     }
+    console.log('Correct!');
     return iter(counter - 1);
   };
-  return iter(3);
-};
 
-export {
-  game, userName, welcomUser, startMassege,
+  return iter(3);
 };

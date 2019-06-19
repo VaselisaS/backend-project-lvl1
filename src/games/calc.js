@@ -1,4 +1,5 @@
-import { question } from '../user';
+import run from '../index';
+import { randomNumber, randomOperator } from '../random-helper';
 
 const calculate = (operator, firstNum, secondNum) => {
   switch (operator) {
@@ -13,6 +14,16 @@ const calculate = (operator, firstNum, secondNum) => {
   }
 };
 
-export const questionUser = (numberFirst, numberSecond, operator) => question(`${numberFirst} ${operator} ${numberSecond}`);
+const data = () => ({
+  numberFirst: randomNumber(0, 99),
+  numberSecond: randomNumber(0, 99),
+  operator: randomOperator(),
+});
 
-export const correctAnswer = (numberFirst, numberSecond, operator) => `${calculate(operator, numberFirst, numberSecond)}`;
+const massege = 'What is the result of the expression?\n';
+
+const getQuestionMassege = ({ numberFirst, numberSecond, operator }) => `${numberFirst} ${operator} ${numberSecond}`;
+
+const getCorrectAnswer = ({ numberFirst, numberSecond, operator }) => `${calculate(operator, numberFirst, numberSecond)}`;
+
+export default () => run(massege, getCorrectAnswer, data, getQuestionMassege);
