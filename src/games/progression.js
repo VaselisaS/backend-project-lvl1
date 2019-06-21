@@ -1,33 +1,26 @@
-import { randomNumber } from '../random-helper';
-import run from '../index';
+import randomNumber from '../random-helper';
+import run from '..';
 
-const massege = 'What number is missing in the progression?\n';
+const description = 'What number is missing in the progression?\n';
 
-const data = {
-  answer: '',
-  question: '',
-};
-
-const progression = (startNumber, increment) => {
+const getProgression = (startNumber, increment) => {
   const indexDots = randomNumber(1, 10);
-  const iter = (counter, num, acc) => {
+  const iter = (counter, num, question, correctAnswer) => {
     if (counter === 0) {
-      data.question = acc.trim();
-      return data.question;
+      return { correctAnswer, question };
     }
     const strNum = counter === indexDots ? '..' : num;
-    if (strNum === '..') {
-      data.answer = `${num}`;
-    }
-    return iter(counter - 1, num + increment, `${acc} ${strNum}`);
+    const newAnswer = strNum === '..' ? `${num}` : correctAnswer;
+    return iter(counter - 1, num + increment, `${question} ${strNum}`, newAnswer);
   };
-  return iter(10, startNumber, '');
+  return iter(10, startNumber, '', '');
 };
 
-const runCreateData = () => progression(randomNumber(0, 99), randomNumber(0, 99));
+const generatorDataGame = () => {
+  const startNumber = randomNumber(0, 99);
+  const increment = randomNumber(0, 99);
+  const { question, correctAnswer } = getProgression(startNumber, increment);
+  return { correctAnswer, question };
+};
 
-const getQuestionMassege = () => data.question;
-
-const getCorrectAnswer = () => data.answer;
-
-export default () => run(massege, getCorrectAnswer, runCreateData, getQuestionMassege);
+export default () => run(description, generatorDataGame);

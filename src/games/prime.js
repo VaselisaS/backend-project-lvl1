@@ -1,26 +1,29 @@
-import { randomNumber } from '../random-helper';
-import run from '../index';
+import randomNumber from '../random-helper';
+import run from '..';
 
-const massege = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
 
-const data = () => randomNumber(0, 99);
-
-const getQuestionMassege = number => `${number}`;
-
-const getCorrectAnswer = (number) => {
+const isPrime = (number) => {
   if (number < 2) {
-    return 'no';
+    return false;
   }
   const iter = (counter) => {
     if (counter > number / 2) {
-      return 'yes';
+      return true;
     }
     if (number % counter === 0) {
-      return 'no';
+      return false;
     }
     return iter(counter + 1);
   };
   return iter(2);
 };
 
-export default () => run(massege, getCorrectAnswer, data, getQuestionMassege);
+const generatorDataGame = () => {
+  const number = randomNumber(0, 99);
+  const question = number;
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
+  return { correctAnswer, question };
+};
+
+export default () => run(description, generatorDataGame);

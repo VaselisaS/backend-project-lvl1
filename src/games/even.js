@@ -1,12 +1,15 @@
-import { randomNumber } from '../random-helper';
-import run from '../index';
+import randomNumber from '../random-helper';
+import run from '..';
 
-const massege = 'Answer "yes" if number even otherwise answer "no".\n';
+const description = 'Answer "yes" if number even otherwise answer "no".\n';
 
-const data = () => randomNumber(0, 99);
+const isEven = number => number % 2 === 0;
 
-const getQuestionMassege = number => `${number}`;
+const generatorDataGame = () => {
+  const number = randomNumber(0, 99);
+  const question = number;
+  const correctAnswer = isEven(number) ? 'yes' : 'no';
+  return { correctAnswer, question };
+};
 
-const getCorrectAnswer = number => (number % 2 === 0 ? 'yes' : 'no');
-
-export default () => run(massege, getCorrectAnswer, data, getQuestionMassege);
+export default () => run(description, generatorDataGame);

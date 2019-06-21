@@ -1,7 +1,15 @@
-import run from '../index';
-import { randomNumber, randomOperator } from '../random-helper';
+import run from '..';
+import randomNumber from '../random-helper';
 
-const calculate = (operator, firstNum, secondNum) => {
+const randomOperator = () => {
+  const operators = '+-*';
+  const index = randomNumber(0, operators.length);
+  return operators[index];
+};
+
+const getQuestion = (firstNum, operator, secondNum) => `${firstNum} ${operator} ${secondNum}`;
+
+const count = (operator, firstNum, secondNum) => {
   switch (operator) {
     case '+':
       return firstNum + secondNum;
@@ -14,16 +22,15 @@ const calculate = (operator, firstNum, secondNum) => {
   }
 };
 
-const data = () => ({
-  numberFirst: randomNumber(0, 99),
-  numberSecond: randomNumber(0, 99),
-  operator: randomOperator(),
-});
+const generatorDataGame = () => {
+  const operator = randomOperator();
+  const firstOperand = randomNumber(0, 99);
+  const secondOperand = randomNumber(0, 99);
+  const question = getQuestion(firstOperand, operator, secondOperand);
+  const correctAnswer = `${count(operator, firstOperand, secondOperand)}`;
+  return { question, correctAnswer };
+};
 
-const massege = 'What is the result of the expression?\n';
+const description = 'What is the result of the expression?\n';
 
-const getQuestionMassege = ({ numberFirst, numberSecond, operator }) => `${numberFirst} ${operator} ${numberSecond}`;
-
-const getCorrectAnswer = ({ numberFirst, numberSecond, operator }) => `${calculate(operator, numberFirst, numberSecond)}`;
-
-export default () => run(massege, getCorrectAnswer, data, getQuestionMassege);
+export default () => run(description, generatorDataGame);

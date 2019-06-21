@@ -1,16 +1,9 @@
-import run from '../index';
-import { randomNumber } from '../random-helper';
+import run from '..';
+import randomNumber from '../random-helper';
 
-const data = () => ({
-  numberFirst: randomNumber(0, 99),
-  numberSecond: randomNumber(0, 99),
-});
+const description = 'Find the greatest common divisor of given numbers.\n';
 
-const massege = 'Find the greatest common divisor of given numbers.\n';
-
-const getQuestionMassege = ({ numberFirst, numberSecond }) => `${numberFirst} ${numberSecond}`;
-
-const getCorrectAnswer = ({ numberFirst, numberSecond }) => {
+const getGcd = (numberFirst, numberSecond) => {
   const iter = (a, b) => {
     if (b === 0) {
       return `${a}`;
@@ -20,4 +13,12 @@ const getCorrectAnswer = ({ numberFirst, numberSecond }) => {
   return iter(numberFirst, numberSecond);
 };
 
-export default () => run(massege, getCorrectAnswer, data, getQuestionMassege);
+const generatorDataGame = () => {
+  const numberFirst = randomNumber(0, 99);
+  const numberSecond = randomNumber(0, 99);
+  const question = `${numberFirst} ${numberSecond}`;
+  const correctAnswer = getGcd(numberFirst, numberSecond);
+  return { correctAnswer, question };
+};
+
+export default () => run(description, generatorDataGame);

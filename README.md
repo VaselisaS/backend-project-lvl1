@@ -1,7 +1,6 @@
 ##
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ee014315bdc95ef4efb2/maintainability)](https://codeclimate.com/github/VaselisaS/backend-project-lvl1/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ee014315bdc95ef4efb2/test_coverage)](https://codeclimate.com/github/VaselisaS/backend-project-lvl1/test_coverage)
 [![Build Status](https://travis-ci.org/VaselisaS/backend-project-lvl1.svg?branch=master)](https://travis-ci.org/VaselisaS/backend-project-lvl1)
 
 ##
