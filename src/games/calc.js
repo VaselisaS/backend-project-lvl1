@@ -1,15 +1,9 @@
 import run from '..';
 import randomNumber from '../random-helper';
 
-const randomOperator = () => {
-  const operators = '+-*';
-  const index = randomNumber(0, operators.length);
-  return operators[index];
-};
+const operators = '+-*';
 
-const getQuestion = (firstNum, operator, secondNum) => `${firstNum} ${operator} ${secondNum}`;
-
-const count = (operator, firstNum, secondNum) => {
+const getCountedExpression = (operator, firstNum, secondNum) => {
   switch (operator) {
     case '+':
       return firstNum + secondNum;
@@ -22,15 +16,15 @@ const count = (operator, firstNum, secondNum) => {
   }
 };
 
-const generatorDataGame = () => {
-  const operator = randomOperator();
+const getDataGame = () => {
+  const operator = operators[randomNumber(0, operators.length)];
   const firstOperand = randomNumber(0, 99);
   const secondOperand = randomNumber(0, 99);
-  const question = getQuestion(firstOperand, operator, secondOperand);
-  const correctAnswer = `${count(operator, firstOperand, secondOperand)}`;
+  const question = `${firstOperand} ${operator} ${secondOperand}`;
+  const correctAnswer = `${getCountedExpression(operator, firstOperand, secondOperand)}`;
   return { question, correctAnswer };
 };
 
-const description = 'What is the result of the expression?\n';
+const description = 'What is the result of the expression?';
 
-export default () => run(description, generatorDataGame);
+export default () => run(description, getDataGame);

@@ -1,36 +1,30 @@
 import 'source-map-support/register';
 import readlineSync from 'readline-sync';
 
-export default (welcomeMassege = '', generatorDataGame) => {
+export default (description, getDataGame) => {
   console.log('Welcome to the Brain Games!\n');
-  console.log(welcomeMassege);
+  console.log(`${description}\n`);
 
   const userName = readlineSync.question('May I have you name? ');
 
   console.log(`Hello, ${userName}!\n`);
 
-  if (welcomeMassege === '') {
-    return false;
-  }
-
-  const iter = (counter) => {
-    if (counter === 0) {
+  const iter = (numberOfQuestions) => {
+    if (numberOfQuestions === 0) {
       console.log(`Congratulations, ${userName}!`);
-      return true;
+      return;
     }
 
-    const { correctAnswer, question } = generatorDataGame();
+    const { correctAnswer, question } = getDataGame();
     console.log(`Question: ${question}`);
     const answerUser = readlineSync.question('Your answer: ');
     if (correctAnswer !== answerUser) {
-      console.log(
-        `'${answerUser}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`,
-      );
-      return false;
+      console.log(`'${answerUser}' is wrong answer ;(. `);
+      console.log(`Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`);
+      return;
     }
     console.log('Correct!');
-
-    return iter(counter - 1);
+    iter(numberOfQuestions - 1);
   };
 
   return iter(3);

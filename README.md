@@ -9,15 +9,9 @@
 
 ## Installation
 
-[![asciicast](https://asciinema.org/a/2Xip1pEbQEvmi59YKVzWttbsk.svg)](https://asciinema.org/a/2Xip1pEbQEvmi59YKVzWttbsk)
+[![asciicast](https://asciinema.org/a/flEcyT9OBUQ60ChaURrKo7Gd0.svg)](https://asciinema.org/a/flEcyT9OBUQ60ChaURrKo7Gd0)
 
 ## Setup
-
-### Brain games
-
-[![asciicast](https://asciinema.org/a/xyvaFJdPp41L5CjO7cwB1JdNT.svg)](https://asciinema.org/a/xyvaFJdPp41L5CjO7cwB1JdNT)
-
-##
 
 ### Brain even
 
