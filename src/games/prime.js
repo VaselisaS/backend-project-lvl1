@@ -20,9 +20,8 @@ const isPrime = (number) => {
 };
 
 const getDataGame = () => {
-  const number = randomNumber(0, 99);
-  const question = number;
-  const correctAnswer = isPrime(number) ? 'yes' : 'no';
+  const question = randomNumber(0, 99);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return { correctAnswer, question };
 };
 

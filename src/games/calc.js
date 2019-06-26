@@ -3,14 +3,14 @@ import randomNumber from '../random-helper';
 
 const operators = '+-*';
 
-const getCountedExpression = (operator, firstNum, secondNum) => {
+const calculateExpression = (operator, leftOperand, rightOperand) => {
   switch (operator) {
     case '+':
-      return firstNum + secondNum;
+      return leftOperand + rightOperand;
     case '-':
-      return firstNum - secondNum;
+      return leftOperand - rightOperand;
     case '*':
-      return firstNum * secondNum;
+      return leftOperand * rightOperand;
     default:
       return NaN;
   }
@@ -18,10 +18,10 @@ const getCountedExpression = (operator, firstNum, secondNum) => {
 
 const getDataGame = () => {
   const operator = operators[randomNumber(0, operators.length)];
-  const firstOperand = randomNumber(0, 99);
-  const secondOperand = randomNumber(0, 99);
-  const question = `${firstOperand} ${operator} ${secondOperand}`;
-  const correctAnswer = `${getCountedExpression(operator, firstOperand, secondOperand)}`;
+  const leftOperand = randomNumber(0, 99);
+  const rightOperand = randomNumber(0, 99);
+  const question = `${leftOperand} ${operator} ${rightOperand}`;
+  const correctAnswer = `${calculateExpression(operator, leftOperand, rightOperand)}`;
   return { question, correctAnswer };
 };
 
