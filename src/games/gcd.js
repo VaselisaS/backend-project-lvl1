@@ -10,7 +10,7 @@ const getGcd = (a, b) => {
   return getGcd(b, a % b);
 };
 
-const getDataGame = () => {
+const getRoundData = () => {
   const value1 = randomNumber(0, 99);
   const value2 = randomNumber(0, 99);
   const question = `${value1} ${value2}`;
@@ -18,4 +18,4 @@ const getDataGame = () => {
   return { correctAnswer, question };
 };
 
-export default () => run(description, getDataGame);
+export default () => run(description, getRoundData);

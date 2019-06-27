@@ -19,10 +19,10 @@ const isPrime = (number) => {
   return iter(2);
 };
 
-const getDataGame = () => {
+const getRoundData = () => {
   const question = randomNumber(0, 99);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return { correctAnswer, question };
 };
 
-export default () => run(description, getDataGame);
+export default () => run(description, getRoundData);

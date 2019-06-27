@@ -4,25 +4,24 @@ import run from '..';
 const description = 'What number is missing in the progression?';
 const progressionLength = 10;
 
-const getProgression = (start, increment, hiddenKey) => {
-  const iter = (counter, progression, question, correctAnswer) => {
+const getProgression = (start, step, lengthOfProgression) => {
+  const iter = (counter, valueProgression, acc) => {
     if (counter === 0) {
-      return { correctAnswer, question };
+      return acc;
     }
-    const newValueProgression = counter === hiddenKey ? '..' : progression;
-    const newAnswer = newValueProgression === '..' ? `${progression}` : correctAnswer;
-    const newQuestion = `${question} ${newValueProgression}`;
-    return iter(counter - 1, progression + increment, newQuestion, newAnswer);
+    return iter(counter - 1, valueProgression + step, [...acc, valueProgression]);
   };
-  return iter(progressionLength, start, '', '');
+  return iter(lengthOfProgression, start, []);
 };
 
-const getDataGame = () => {
+const getRoundData = () => {
   const start = randomNumber(0, 99);
-  const increment = randomNumber(0, 99);
-  const hiddenKey = randomNumber(1, 10);
-  const { question, correctAnswer } = getProgression(start, increment, hiddenKey);
+  const step = randomNumber(0, 99);
+  const hiddenKey = randomNumber(0, 9);
+  const progression = getProgression(start, step, progressionLength);
+  const question = progression.map((p, i) => (i === hiddenKey ? '..' : p)).join(' ');
+  const correctAnswer = `${progression[hiddenKey]}`;
   return { correctAnswer, question };
 };
 
-export default () => run(description, getDataGame);
+export default () => run(description, getRoundData);

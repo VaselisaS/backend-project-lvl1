@@ -12,11 +12,11 @@ const calculateExpression = (operator, leftOperand, rightOperand) => {
     case '*':
       return leftOperand * rightOperand;
     default:
-      return NaN;
+      return false;
   }
 };
 
-const getDataGame = () => {
+const getRoundData = () => {
   const operator = operators[randomNumber(0, operators.length)];
   const leftOperand = randomNumber(0, 99);
   const rightOperand = randomNumber(0, 99);
@@ -27,4 +27,4 @@ const getDataGame = () => {
 
 const description = 'What is the result of the expression?';
 
-export default () => run(description, getDataGame);
+export default () => run(description, getRoundData);

@@ -1,7 +1,7 @@
 import 'source-map-support/register';
 import readlineSync from 'readline-sync';
 
-const roundCount = 3;
+const roundsCount = 3;
 
 export default (description, getDataGame) => {
   console.log('Welcome to the Brain Games!\n');
@@ -12,7 +12,7 @@ export default (description, getDataGame) => {
   console.log(`Hello, ${userName}!\n`);
 
   const iter = (round) => {
-    if (round === 0) {
+    if (round > roundsCount) {
       console.log(`Congratulations, ${userName}!`);
       return;
     }
@@ -26,8 +26,8 @@ export default (description, getDataGame) => {
       return;
     }
     console.log('Correct!');
-    iter(round - 1);
+    iter(round + 1);
   };
 
-  return iter(roundCount);
+  return iter(1);
 };
