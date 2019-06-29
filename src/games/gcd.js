@@ -11,8 +11,8 @@ const getGcd = (a, b) => {
 };
 
 const getRoundData = () => {
-  const value1 = randomNumber(0, 99);
-  const value2 = randomNumber(0, 99);
+  const value1 = randomNumber(1, 100);
+  const value2 = randomNumber(1, 100);
   const question = `${value1} ${value2}`;
   const correctAnswer = getGcd(value1, value2);
   return { correctAnswer, question };

@@ -17,9 +17,9 @@ const calculateExpression = (operator, leftOperand, rightOperand) => {
 };
 
 const getRoundData = () => {
-  const operator = operators[randomNumber(0, operators.length)];
-  const leftOperand = randomNumber(0, 99);
-  const rightOperand = randomNumber(0, 99);
+  const operator = operators[randomNumber(0, operators.length - 1)];
+  const leftOperand = randomNumber(1, 100);
+  const rightOperand = randomNumber(1, 100);
   const question = `${leftOperand} ${operator} ${rightOperand}`;
   const correctAnswer = `${calculateExpression(operator, leftOperand, rightOperand)}`;
   return { question, correctAnswer };

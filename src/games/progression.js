@@ -4,22 +4,24 @@ import run from '..';
 const description = 'What number is missing in the progression?';
 const progressionLength = 10;
 
-const getProgression = (start, step, lengthOfProgression) => {
-  const iter = (counter, valueProgression, acc) => {
-    if (counter === 0) {
+const getProgression = (start, step, length) => {
+  const iter = (counter, acc) => {
+    if (counter === length) {
       return acc;
     }
-    return iter(counter - 1, valueProgression + step, [...acc, valueProgression]);
+    return iter(counter + 1, [...acc, start + counter * step]);
   };
-  return iter(lengthOfProgression, start, []);
+  return iter(0, []);
 };
 
 const getRoundData = () => {
-  const start = randomNumber(0, 99);
-  const step = randomNumber(0, 99);
-  const hiddenKey = randomNumber(0, 9);
+  const start = randomNumber(1, 100);
+  const step = randomNumber(1, 100);
   const progression = getProgression(start, step, progressionLength);
-  const question = progression.map((p, i) => (i === hiddenKey ? '..' : p)).join(' ');
+  const hiddenKey = randomNumber(0, progressionLength - 1);
+  const question = progression
+    .map((currentValue, index) => (index === hiddenKey ? '..' : currentValue))
+    .join(' ');
   const correctAnswer = `${progression[hiddenKey]}`;
   return { correctAnswer, question };
 };

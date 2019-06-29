@@ -20,7 +20,7 @@ const isPrime = (number) => {
 };
 
 const getRoundData = () => {
-  const question = randomNumber(0, 99);
+  const question = randomNumber(1, 100);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return { correctAnswer, question };
 };
